@@ -20,9 +20,12 @@ Test: "It should add a character to CharacterSheets
 Code: function(Bilbo)
 Expected output: [Bilbo]
 
+Describe: CharacterSheets.prototype.deleteCharacter 
+Test: "It should delete a character from CharacterSheets
+Code: function(Bilbo)
+Expected output: []
 
-Describe: listCharacters()
-Test: It should list all the characters stored by first name only
-
-Describe: characterDetails
-Test: It should display the details for the selected character
+Describe: dndStats
+Test: It should roll for stats
+Code: dndStats
+Expected output: 
