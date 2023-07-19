@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html lang="en-US">
-<head>
-  <title>DnD Character Sheet</title>
-  <link href="css/styles.css" rel="stylesheet" type="text/css">
-  <script src="js/scripts.js"></script>
-<head> DnD Character Sheet </head>
-<body>
-</body>
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Character Sheet</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Character Sheet</h1>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h2>Add a character:</h2>
+          <form id="new-character">
+
+            <div class="form-group">
+              <label for="new-name">Name</label>
+              <input type="text" class="form-control" id="new-name">
+            </div>
+            <div class="form-group">
+              <label for="new-gender">Gender</label>
+              <input type="text" class="form-control" id="new-gender">
+            </div>
+            
+            <div class="form-group">
+              <label for="new-race">Race</label>
+              <input type="text" class="form-control" id="new-race">
+            </div>
+  
+            <div class="form-group">
+              <label for="new-class">Class</label>
+              <input type="text" class="form-control" id="new-class">
+            </div>
+
+            <div class="form-group">
+              <label for="new-alignment">Alignment</label>
+              <input type="text" class="form-control" id="new-alignment">
+            </div>
+  
+            <!-- <div id="new-addresses">
+              <div class="new-address">
+                <div class="form-group">
+                  <label for="new-address">Address</label>
+                  <input type="text" class="form-control address">
+                </div>
+              </div>
+
+            </div> -->
+
+            <button type="submit" class="btn btn-success">Add character</button>
+          </form>
+
+          <h2>Characters:</h2>
+          <ul id="characters">
+
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div id="show-character">
+            <h2></h2>
+            <p>Name: <span class="name"></span></p>
+            <p>Gender: <span class="gender"></span></p>
+            <p>Race: <span class="race"></span></p>
+            <p>Class: <span class="class"></span></p>
+            <p>Alignment: <span class="alignment"></span></p>
+            <p>Addresses:</p>
+            <ul id="show-addresses">
+
+            </ul>
+            <div id="buttons">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
 </html>
