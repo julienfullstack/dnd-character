@@ -1,28 +1,28 @@
 PSEUDOCODE TESTS
 
-Describe: Characters()
+Describe: CharactersSheets()
 
 Test: It should store characters
 Code: Character(Bilbo, Gandolf, Golum);
 Expected Output: [Bilbo, Gandolf, Golum]
 
 
-Describe: NewCharacter(name, gender, race, class, alignment, stats)
+Describe: 
+function NewCharacter(charName, charGender, charRace, charClass)
 
 Test: It should store a new character and push the character to the Characters
-Code: NewCharacter(Bilbo, Male, Hobbit, Traveler, str, dex, cons, int, wis, char)
+Code: NewCharacter(Bilbo, Male, Hobbit, Traveler)
 Expected Output:
-[Bilbo, Male, Hobbit, Traveler, Neutral Good, str, dex, cons, int, wis, char]
+[Bilbo, Male, Hobbit, Traveler]
 
-
-Describe: rollStats()
-Test: "It should randomly generate a number between 1-20 for each stat and push them to Stats"
-Code: rollStats()
-Expected output: [3, 4, 9, 12, 20, 12, 10]
-
-Describe: NewCharacter.prototype.Name
-Test: It should display the character's name only
-Code: character.Name()
+Describe: CharacterSheets.prototype.addCharacter 
+Test: "It should add a character to CharacterSheets
+Code: function(Bilbo)
 Expected output: [Bilbo]
 
-Describe: 
+
+Describe: listCharacters()
+Test: It should list all the characters stored by first name only
+
+Describe: characterDetails
+Test: It should display the details for the selected character
