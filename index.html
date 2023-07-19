@@ -36,22 +36,37 @@
               <input type="text" class="form-control" id="new-class">
             </div>
 
-            <div class="form-group">
-              <label for="new-alignment">Alignment</label>
-              <input type="text" class="form-control" id="new-alignment">
-            </div>
+            <table id="new-alignment">
+                <label for="new-alignment">Alignment</label>
+                <tr class="row1">
+                  <td><button class="alignment-button" onclick="selectAlignment('Lawful Good')">Lawful Good</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('Neutral Good')">Neutral Good</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('Chaotic Good')">Chaotic Good</button></td>
+                </tr>
+                <tr class="row2">
+                  <td><button class="alignment-button"  onclick="selectAlignment('Lawful Neutral')">Lawful Neutral</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('True Neutral')">True Neutral</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('Chaotic Neutral')">Chaotic Neutral</button></td>
+                </tr>
+                <tr class="row3">
+                  <td><button class="alignment-button" onclick="selectAlignment('Lawful Evil')">Lawful Evil</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('Neutral Evil')">Neutral Evil</button></td>
+                  <td><button class="alignment-button" onclick="selectAlignment('Chaotic Evil')">Chaotic Evil</button></td>
+                </tr>
+              </div>
+            </table>
   
-            <!-- <div id="new-addresses">
-              <div class="new-address">
+            <div id="new-stats">
+              <div class="new-stat">
                 <div class="form-group">
-                  <label for="new-address">Address</label>
-                  <input type="text" class="form-control address">
+                  <label for="new-stat">Stat</label>
+                  <input type="text" class="form-control stat">
                 </div>
               </div>
 
-            </div> -->
+            </div>
 
-            <button type="submit" class="btn btn-success">Add character</button>
+            <button type="submit" class="submitButton">Add character</button>
           </form>
 
           <h2>Characters:</h2>
@@ -68,8 +83,8 @@
             <p>Race: <span class="race"></span></p>
             <p>Class: <span class="class"></span></p>
             <p>Alignment: <span class="alignment"></span></p>
-            <p>Addresses:</p>
-            <ul id="show-addresses">
+            <p>Stats:</p>
+            <ul id="show-stats">
 
             </ul>
             <div id="buttons">
