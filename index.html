@@ -4,7 +4,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
     <title>Character Sheet</title>
   </head>
   <body>
@@ -55,15 +54,9 @@
                 </tr>
               </div>
             </table>
-  
-            <div id="new-stats">
-              <div class="new-stat">
-                <div class="form-group">
-                  <label for="new-stat">Stat</label>
-                  <input type="text" class="form-control stat">
-                </div>
-              </div>
 
+            <button id="roll-button">Roll Stats</button>
+            <table id="stat-grid"></table>
             </div>
 
             <button type="submit" class="submitButton">Add character</button>
@@ -85,7 +78,7 @@
             <p>Alignment: <span class="alignment"></span></p>
             <p>Stats:</p>
             <ul id="show-stats">
-
+              
             </ul>
             <div id="buttons">
             </div>
@@ -94,5 +87,6 @@
 
       </div>
     </div>
+    <script src="js/scripts.js"></script>
   </body>
 </html>

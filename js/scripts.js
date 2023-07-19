@@ -11,7 +11,7 @@ function Character(Name, Gender, Race, Class, Alignment) {
   this.Race = Race,
   this.Class = Class,
   this.Alignment = Alignment,
-  this.stats = []
+  this.stats = {};
 }
 
 CharacterSheets.prototype.assignId = function() {
@@ -47,13 +47,74 @@ CharacterSheets.prototype.deleteCharacter = function(id) {
   return false;
 }
 
-Character.prototype.addStats = function(stat) {
-  this.stats.push(stat);
+// Character.prototype.addStats = function(stat) {
+//   this.stats.push(stat);
+// }
+
+// STAT LOGIC //
+const dndStats = {
+  Strength: 0,
+  Dexterity: 0,
+  Constitution: 0,
+  Intelligence: 0,
+  Wisdom: 0,
+  Charisma: 0
+};
+
+document.getElementById('roll-button').addEventListener('click', rollStats);
+
+function rollStats(event) {
+  event.preventDefault();
+
+  const stats = { ...dndStats };
+
+  for (let stat in stats) {
+    stats[stat] = rollDice();
+  }
+
+  createGrid(stats);
 }
+
+function rollDice() {
+  const diceRolls = [];
+
+  for (let i = 0; i < 4; i++) {
+    diceRolls.push(Math.floor(Math.random() * 6) + 1);
+  }
+
+  diceRolls.sort((a, b) => a - b);
+  diceRolls.shift();
+  const total = diceRolls.reduce((sum, roll) => sum + roll, 0);
+
+  return total;
+}
+
+function createGrid(stats) {
+  const grid = document.getElementById('stat-grid');
+  grid.innerHTML = '';
+
+  for (let stat in stats) {
+    const row = document.createElement('tr');
+
+    const statCell = document.createElement('td');
+    statCell.textContent = stat;
+    row.appendChild(statCell);
+
+    const valueCell = document.createElement('td');
+    valueCell.textContent = stats[stat];
+    row.appendChild(valueCell);
+
+    grid.appendChild(row);
+  }
+}
+
+// function resetGrid() {
+//   const grid = document.getElementById('stat-grid');
+//   grid.innerHTML = '';
+// }
 
 // UI logic
 
-// This is a global variable that mocks a database.
 var characterSheet = new CharacterSheets();
 
 function showCharacter(id) {
@@ -102,6 +163,8 @@ function resetForm() {
   var form = document.getElementById("new-character"); 
   form.reset();
   $("button.alignment-button").removeClass("clicked");
+  const grid = document.getElementById('stat-grid');
+  grid.innerHTML = '';
 }
 
 $(document).ready(function() {
