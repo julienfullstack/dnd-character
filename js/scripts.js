@@ -125,6 +125,7 @@ function showCharacter(id) {
   $(".race").html(character.Race);
   $(".class").html(character.Class);
   $(".alignment").html(character.Alignment);
+  $(".stats").html( );
   // var stats = "";
   // character.stats.forEach(function(stat) {
   //   stats += "<li>" + stat + "</li>";
