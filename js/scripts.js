@@ -5,13 +5,13 @@ function CharacterSheets() {
   this.currentId = 0
 }
 
-function Character(Name, Gender, Race, Class, Alignment) {
+function Character(Name, Gender, Race, Class, Alignment, Stats) {
   this.Name = Name,
   this.Gender = Gender,
   this.Race = Race,
   this.Class = Class,
   this.Alignment = Alignment,
-  this.stats = {};
+  this.Stats = {};
 }
 
 CharacterSheets.prototype.assignId = function() {
@@ -47,66 +47,63 @@ CharacterSheets.prototype.deleteCharacter = function(id) {
   return false;
 }
 
-// Character.prototype.addStats = function(stat) {
-//   this.stats.push(stat);
-// }
 
 // STAT LOGIC //
-const dndStats = {
-  Strength: 0,
-  Dexterity: 0,
-  Constitution: 0,
-  Intelligence: 0,
-  Wisdom: 0,
-  Charisma: 0
-};
+// const dndStats = {
+//   Strength: 0,
+//   Dexterity: 0,
+//   Constitution: 0,
+//   Intelligence: 0,
+//   Wisdom: 0,
+//   Charisma: 0
+// };
 
-document.getElementById('roll-button').addEventListener('click', rollStats);
+// document.getElementById('roll-button').addEventListener('click', rollStats);
 
-function rollStats(event) {
-  event.preventDefault();
+// function rollStats(event) {
+//   event.preventDefault();
 
-  const stats = { ...dndStats };
+//   const stats = { ...dndStats };
 
-  for (let stat in stats) {
-    stats[stat] = rollDice();
-  }
+//   for (let stat in stats) {
+//     stats[stat] = rollDice();
+//   }
+  
+//   createGrid(stats);
+// }
 
-  createGrid(stats);
-}
+// function rollDice() {
+//   const diceRolls = [];
 
-function rollDice() {
-  const diceRolls = [];
+//   for (let i = 0; i < 4; i++) {
+//     diceRolls.push(Math.floor(Math.random() * 6) + 1);
+//   }
 
-  for (let i = 0; i < 4; i++) {
-    diceRolls.push(Math.floor(Math.random() * 6) + 1);
-  }
+//   diceRolls.sort((a, b) => a - b);
+//   diceRolls.shift();
+//   const total = diceRolls.reduce((sum, roll) => sum + roll, 0);
 
-  diceRolls.sort((a, b) => a - b);
-  diceRolls.shift();
-  const total = diceRolls.reduce((sum, roll) => sum + roll, 0);
+//   return total;
+// }
 
-  return total;
-}
+// function createGrid(stats) {
+//   const grid = document.getElementById('stat-grid');
+//   grid.innerHTML = '';
 
-function createGrid(stats) {
-  const grid = document.getElementById('stat-grid');
-  grid.innerHTML = '';
+//   for (let stat in stats) {
+//     const row = document.createElement('tr');
 
-  for (let stat in stats) {
-    const row = document.createElement('tr');
+//     const statCell = document.createElement('td');
+//     statCell.textContent = stat;
+//     row.appendChild(statCell);
 
-    const statCell = document.createElement('td');
-    statCell.textContent = stat;
-    row.appendChild(statCell);
+//     const valueCell = document.createElement('td');
+//     valueCell.textContent = stats[stat];
+//     row.appendChild(valueCell);
 
-    const valueCell = document.createElement('td');
-    valueCell.textContent = stats[stat];
-    row.appendChild(valueCell);
-
-    grid.appendChild(row);
-  }
-}
+//     grid.appendChild(row);
+//   }
+// }
 
 // function resetGrid() {
 //   const grid = document.getElementById('stat-grid');
@@ -186,18 +183,12 @@ $(document).ready(function() {
     var inputtedRace = $("input#new-race").val();
     var inputtedClass = $("input#new-class").val();
     var inputtedAlignment = clickedAlignment;
+    var inputtedStats = stats; 
     var newCharacter = new Character(inputtedName, inputtedGender, inputtedRace, inputtedClass, inputtedAlignment);
-    $(".new-stat").each(function() {
-      var stat = $(this).find("input.stat").val();
-      newCharacter.addStats(stat);
-    });
+    character.Stats = inputtedStats;
     resetForm();
     characterSheet.addCharacter(newCharacter);
     display(characterSheet);
-    $("#additional-stats").empty();
   });
-
-
-
 });
 
