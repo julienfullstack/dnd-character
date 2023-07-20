@@ -25,7 +25,3 @@ Test: "It should delete a character from CharacterSheets
 Code: function(Bilbo)
 Expected output: []
 
-Describe: dndStats
-Test: It should roll for stats
-Code: dndStats
-Expected output: 

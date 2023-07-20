@@ -15,12 +15,23 @@ td {
 }
 
 button {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  align-self: center;
   font-size: 16px;
   cursor: pointer;
 }
 
 .clicked {
   background-color: yellow;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
 }

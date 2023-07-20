@@ -11,7 +11,7 @@ function Character(Name, Gender, Race, Class, Alignment, Stats) {
   this.Race = Race,
   this.Class = Class,
   this.Alignment = Alignment,
-  this.Stats = {};
+  this.Stats = Stats;
 }
 
 CharacterSheets.prototype.assignId = function() {
@@ -70,6 +70,7 @@ CharacterSheets.prototype.deleteCharacter = function(id) {
 //   }
   
 //   createGrid(stats);
+//   s
 // }
 
 // function rollDice() {
@@ -122,7 +123,7 @@ function showCharacter(id) {
   $(".race").html(character.Race);
   $(".class").html(character.Class);
   $(".alignment").html(character.Alignment);
-  $(".stats").html( );
+  // $(".stats").html( );
   // var stats = "";
   // character.stats.forEach(function(stat) {
   //   stats += "<li>" + stat + "</li>";
@@ -161,8 +162,8 @@ function resetForm() {
   var form = document.getElementById("new-character"); 
   form.reset();
   $("button.alignment-button").removeClass("clicked");
-  const grid = document.getElementById('stat-grid');
-  grid.innerHTML = '';
+  // const grid = document.getElementById('stat-grid');
+  // grid.innerHTML = '';
 }
 
 $(document).ready(function() {
@@ -183,12 +184,18 @@ $(document).ready(function() {
     var inputtedRace = $("input#new-race").val();
     var inputtedClass = $("input#new-class").val();
     var inputtedAlignment = clickedAlignment;
-    var inputtedStats = stats; 
     var newCharacter = new Character(inputtedName, inputtedGender, inputtedRace, inputtedClass, inputtedAlignment);
-    character.Stats = inputtedStats;
+    // $(".new-stat").each(function() {
+    //   var stat = $(this).find("input.stat").val();
+    //   newCharacter.addStats(stat);
+    // });
     resetForm();
     characterSheet.addCharacter(newCharacter);
     display(characterSheet);
+    // $("#additional-stats").empty();
   });
+
+
+
 });
 
